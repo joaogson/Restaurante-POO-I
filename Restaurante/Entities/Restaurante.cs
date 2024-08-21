@@ -1,28 +1,38 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Restaurante;
 
 public class Restaurante : Estabelecimento
 {
-    private int count=0;
-    public List<Prato> cardapio = new List<Prato>();
+    private int count = 0;
+    private int Id = 0;
+    public List<Prato> cardapio;
 
     public Restaurante(string nome, string endereco, string telefone) : base(nome, endereco, telefone)
     {
+        Id = count;
         count++;
+        cardapio = new List<Prato>();
+
     }
 
-    public void AdicionaPrato(string nome, int preco, bool veg)
+    public void RemovePrato(string nome)
     {
-        Prato novoPrato = new Prato(nome, preco, veg);
-        cardapio.Add(novoPrato);
-        Console.WriteLine($"Prato: {novoPrato} adicionado com sucesso!");
-    }
+        Prato pratoParaRemover = cardapio.FirstOrDefault(p => p.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
 
-    public void RemovePrato(string nome, int preco)
-    {
-        cardapio.Find(new cardapio() { Nome=nome, Preco=preco});
-        Console.WriteLine($"Prato: {nome} removido com sucesso!")
+        if (pratoParaRemover == null)
+        {
+            Console.WriteLine($"Nenhum prato igual a {pratoParaRemover} encontrado!");
+        }
+        else
+        {
+            cardapio.Remove(pratoParaRemover);
+            Console.WriteLine($"prato {pratoParaRemover} removido com sucesso do cardápio!");
+
+        }
+
     }
 
 }

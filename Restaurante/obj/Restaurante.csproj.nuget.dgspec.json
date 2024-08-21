@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\estagiario\\Documents\\GitHub\\Restaurante-POO-I\\Restaurante\\Restaurante.csproj": {}
+    "C:\\Users\\estagiario\\Desktop\\Matérias\\POO-I\\Restaurante\\Restaurante.csproj": {}
   },
   "projects": {
-    "C:\\Users\\estagiario\\Documents\\GitHub\\Restaurante-POO-I\\Restaurante\\Restaurante.csproj": {
+    "C:\\Users\\estagiario\\Desktop\\Matérias\\POO-I\\Restaurante\\Restaurante.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\estagiario\\Documents\\GitHub\\Restaurante-POO-I\\Restaurante\\Restaurante.csproj",
+        "projectUniqueName": "C:\\Users\\estagiario\\Desktop\\Matérias\\POO-I\\Restaurante\\Restaurante.csproj",
         "projectName": "Restaurante",
-        "projectPath": "C:\\Users\\estagiario\\Documents\\GitHub\\Restaurante-POO-I\\Restaurante\\Restaurante.csproj",
+        "projectPath": "C:\\Users\\estagiario\\Desktop\\Matérias\\POO-I\\Restaurante\\Restaurante.csproj",
         "packagesPath": "C:\\Users\\estagiario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\estagiario\\Documents\\GitHub\\Restaurante-POO-I\\Restaurante\\obj\\",
+        "outputPath": "C:\\Users\\estagiario\\Desktop\\Matérias\\POO-I\\Restaurante\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\estagiario\\AppData\\Roaming\\NuGet\\NuGet.Config"

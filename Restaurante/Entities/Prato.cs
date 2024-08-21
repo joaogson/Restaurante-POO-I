@@ -6,9 +6,16 @@ namespace Restaurante;
 public class Prato
 {
 
-    public string Nome { get; private set; }
-    public double Preco { get; private set; }
+    public string Nome { get; set; }
+    public double Preco { get; set; }
     public bool Vegetariano;
+
+    public Prato(string nome, double preco, bool vegetariano)
+    {
+        Nome = nome;
+        Preco = preco;
+        Vegetariano = vegetariano;
+    }
 
     public void AtualizaPreco(int preco)
     {
@@ -18,7 +25,7 @@ public class Prato
         this.Preco = preco;
     }
 
-    public int ObterPreco()
+    public double ObterPreco()
     {
         return Preco;
     }

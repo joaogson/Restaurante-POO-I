@@ -1,66 +1,97 @@
-﻿namespace Restaurante;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Restaurante;
 
 class Program
 {
+
     static void Main(string[] args)
     {
-        while(true)
+        bool menu = true;
+        Gerenciador gerenciador = new Gerenciador();
+
+
+        while (menu)
         {
 
-        Console.WriteLine("Selecione uma opção");
-        Console.WriteLine("1- Cadastrar Restaurantes e Pratos");
-        Console.WriteLine("2- Gerenciar Pratos");
-        Console.WriteLine("3- Gerenciar Pedidos");
-        Console.WriteLine("4- Exibir Pedidos");
-        Console.WriteLine("5- Sair");
-        
-        switch (Console.ReadLine())
-        {
-            
-            case "1":
+            Console.Clear();
+            Console.WriteLine("----- MENU -----");
+            Console.WriteLine("1. Gerenciar Restaurantes");
+            Console.WriteLine("2. Gerenciar Pratos ");
+            Console.WriteLine("3. Pedidos");
+            Console.WriteLine("5. Sair");
 
-                Clear();
-                Console.WriteLine("1- Cadastrar Restaurante");
-                Console.WriteLine("2- Cadastrar Prato");
-                
+            string opcao = Console.ReadLine();
 
-                if(Console.ReadLine() == "1")
+            switch (opcao)
+            {
+
+                case "1":
+                    //Lógica de Gerenciamento de Restaurantes
+                    Console.Clear();
+                    Console.WriteLine("----Restaurantes----");
+                    Console.WriteLine("1. Adicionar Restaurante");
+                    Console.WriteLine("2. Listar Restaurantes");
+
+                    string opcaoRestaurante = Console.ReadLine();
+
+                    switch (opcaoRestaurante)
                     {
-                    string nome;
-                    string endereco;
-                    string telefone;
-                    Restaurante.Restaurante(nome, endereco, telefone);
+                        case "1":
+
+                            gerenciador.CadastrarRestaurante();
+                            break;
+
+                        case "2":
+
+                            gerenciador.ListarRestaurantes();
+                            break;
                     }
-                else
-                {
-                    string nomePrato;
-                    string preco;
-                    string veg;
-                    bool vegetariano;
-                    if(ver == 's')
-                        vegetariano = true;
-                    else
-                        vegetariano = false;
 
-                    Restaurante.AdicionaPrato(nomePrato, preco, vegetariano);
-                }
-            break;
+                    break;
+                case "2":
+                    //Lógica de Gerenciamento de Pratos
+                    Console.Clear();
+                    Console.WriteLine("----Pratos----");
+                    Console.WriteLine("1. Adicionar Prato");
+                    Console.WriteLine("2. Remover Prato");
+                    Console.WriteLine("3. Listar Pratos");
 
-            case "2":
+                    string opcaoPrato = Console.ReadLine();
 
-            Clear();
-            Console.WriteLine("1- Adicionar Prat");
+                    switch (opcaoPrato)
+                    {
 
-            case "3":
+                        case "1":
+                            gerenciador.AdicionaPrato();
+                            break;
 
-            case "4":
+                        case "2":
+                            gerenciador.RemovePrato();
+                            break;
 
-            case "5":
+                        case "3":
+                            gerenciador.ListarPratos();
+                            break;
+                    }
+
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+
+                    break;
+                case "5":
+                    menu = false;
+                    break;
+            }
+
         }
-
-        }
-       
-
 
     }
+
+
+
 }

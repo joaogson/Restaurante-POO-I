@@ -2,7 +2,7 @@ using System;
 
 namespace Restaurante;
 
-public class Estabelecimento
+public abstract class Estabelecimento
 {
     public string Nome { get; private set; }
     public string Endereco { get; private set; }
@@ -10,7 +10,7 @@ public class Estabelecimento
 
     public Estabelecimento(string nome, string endereco, string telefone)
     {
-        if(nome = null)
+        if(nome == null)
             throw new ArgumentNullException("O estabelecimento deve possuir um nome", nameof(nome));
         
         if(endereco == null)
@@ -19,5 +19,7 @@ public class Estabelecimento
         Nome = nome;
         Endereco = endereco;
         Telefone = telefone;
+        
+        ;
     }
 }

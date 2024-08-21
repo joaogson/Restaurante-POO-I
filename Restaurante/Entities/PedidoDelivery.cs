@@ -5,12 +5,20 @@ namespace Restaurante;
 public class PedidoDelivery : Pedido
 {
 
-public override CalcularTotal(double frete)
-{
-    int total = pratos.Sum(Prato => Prato.Preco);
-    int Pedido = total + frete;
+    private double taxaEntrega = 10; 
 
-    Console.WriteLine($"Pedido deu: {Pedido}");
-}
+    protected override void FazerPedido()
+    {
+        base.FazerPedido();
+        Console.WriteLine($"Valor do pedido: {CalcularTotal()}");
+        Console.ReadLine();
+    }
+
+    protected override double CalcularTotal()
+    {
+    
+        double totalDelivery = base.CalcularTotal() + taxaEntrega;
+        return CalcularTotal();
+    }
 
 }
