@@ -8,7 +8,8 @@ namespace Restaurante;
 public class Gerenciador
 {
 
-    protected List<Restaurante> restaurantes;
+    public List<Restaurante> restaurantes;
+    public List<Pedido> pedidos;
 
     public Gerenciador()
     {

@@ -6,38 +6,50 @@ namespace Restaurante;
 public abstract class Pedido : Gerenciador
 {
     protected string NumeroPedido { get; set; }
-    protected List<Prato> Pedidos { get; set; }
 
-    protected virtual void FazerPedido()
+    private static int count = 0;
+    protected List<Prato> PedidoLista { get; set; }
+
+    public Pedido()
     {
-        Console.WriteLine("Informe o Restaurante");
-        string restauranteNome = Console.ReadLine();
+        NumeroPedido = Convert.ToString(count);
+        PedidoLista = new List<Prato>();
+        count++;
 
+    }
+
+    public virtual void FazerPedido()
+    {
         bool continuar = true;
 
         while (continuar)
         {
-            Restaurante restaurante = restaurantes.FirstOrDefault(x => x.Nome.Equals(restauranteNome, StringComparison.OrdinalIgnoreCase));
+            Restaurante restaurante = null;
 
-            if (restaurante == null)
+            while (restaurante == null)
             {
-                throw new ArgumentException("O restaurante não existe", nameof(restauranteNome));
+                Console.WriteLine("Informe o Restaurante");
+                string restauranteNome = Console.ReadLine();
+
+                restaurante = restaurantes.FirstOrDefault(x => x.Nome.Equals(restauranteNome, StringComparison.OrdinalIgnoreCase));
+
+                if (restaurante == null)
+                    Console.WriteLine("Restaurante não existe, tente novamente");
+
             }
-            else
-            {
 
-                Console.WriteLine("Informe o prato");
-                string pratoNome = Console.ReadLine();
+            Console.WriteLine("Informe o prato");
+            string pratoNome = Console.ReadLine();
 
-                Prato prato = restaurante.cardapio.FirstOrDefault(x => x.Nome.Equals(pratoNome, StringComparison.OrdinalIgnoreCase));
+            Prato prato = restaurante.cardapio.FirstOrDefault(x => x.Nome.Equals(pratoNome, StringComparison.OrdinalIgnoreCase));
 
-                Pedidos.Add(prato);
-                Console.WriteLine($"Prato: {prato.Nome} adicionado ao pedido!");
-                Console.ReadKey();
-            }
+            PedidoLista.Add(prato);
+            Console.WriteLine($"Prato: {prato.Nome} adicionado ao pedido!");
+            Console.ReadKey();
+
 
             Console.WriteLine("Deseja Continuar?");
-            string opcao = "";
+            string opcao = Console.ReadLine().ToLower();
             if (opcao == "sim" || opcao == "s")
             {
                 continuar = true;
@@ -51,14 +63,22 @@ public abstract class Pedido : Gerenciador
         }
     }
 
-    protected virtual double CalcularTotal()
+    public virtual double CalcularTotal()
+
     {
-        double total = 0;
-
-        foreach (var prato in Pedidos)
-            total += prato.Preco;
-
+        double total = PedidoLista.Sum(prato => prato.Preco);
 
         return total;
+    }
+
+    public virtual void DetalhesPedido(string numeroPedido)
+    {
+        Pedido pedidoDetalhes = pedidos.FirstOrDefault(x => x.NumeroPedido.Equals(numeroPedido, StringComparison.OrdinalIgnoreCase));
+
+        Console.WriteLine($"Detalhes do pedido:\nNúmero do pedido: {pedidoDetalhes.NumeroPedido}");
+        foreach(var prato in PedidoLista)
+        {
+            Console.WriteLine($"Prato: {prato.Nome}   Preço: {prato.Preco}");
+        }
     }
 }

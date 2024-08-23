@@ -7,14 +7,14 @@ public class PedidoDelivery : Pedido
 
     private double taxaEntrega = 10; 
 
-    protected override void FazerPedido()
+    public override void FazerPedido()
     {
         base.FazerPedido();
         Console.WriteLine($"Valor do pedido: {CalcularTotal()}");
         Console.ReadLine();
     }
 
-    protected override double CalcularTotal()
+    public override double CalcularTotal()
     {
     
         double totalDelivery = base.CalcularTotal() + taxaEntrega;

@@ -79,6 +79,78 @@ class Program
                     break;
                 case "3":
 
+                    Console.Clear();
+                    Console.WriteLine("1. Presencial");
+                    Console.WriteLine("2. Delivery");
+
+                    string opcaoTipoPedido = Console.ReadLine();
+
+                    switch (opcaoTipoPedido)
+                    {
+                        case "1":
+
+
+                            Console.Clear();
+                            Console.WriteLine("1. Fazer um pedido");
+                            Console.WriteLine("2. Adicionar ao pedido");
+                            Console.WriteLine("3. Listar pedido");
+
+                            string opcaoPresencial = Console.ReadLine();
+                            PedidoPresencial pedidoPresencial = new PedidoPresencial();
+                            switch (opcaoPresencial)
+                            {
+                                case "1":
+                                   
+                                    pedidoPresencial.FazerPedido();
+
+                                    break;
+                                case "2":
+
+                                    break;
+                                case "3":
+
+                                    break;
+                                case "4":
+
+                                    break;
+                            }
+                            break;
+                        case "2":
+
+                            Console.Clear();
+                            Console.WriteLine("1. Fazer um pedido");
+                            Console.WriteLine("2. Adicionar ao pedido");
+                            Console.WriteLine("3. Listar pedido");
+
+                            string opcaoDelivery = Console.ReadLine();
+                            PedidoDelivery pedidoDelivery = new PedidoDelivery();
+
+                            switch (opcaoDelivery)
+                            {
+                                case "1":
+                                    pedidoDelivery.FazerPedido();
+
+                                    break;
+                                case "2":
+
+
+                                    break;
+                                case "3":
+                                    Console.WriteLine("Informe o numero do pedido");
+                                    string numPedido = Console.ReadLine();
+                                    pedidoDelivery.DetalhesPedido(numPedido);
+                                    break;
+                                case "4":
+
+                                    break;
+                            }
+
+                            break;
+                    }
+
+
+
+
                     break;
                 case "4":
 
